@@ -329,7 +329,7 @@ header .nav .menu ul a i {
 @media (max-width: 991px) {
   .landing .container {
     flex-direction: column-reverse;
-    padding: 30px 0 0;
+    padding: 80px 0 0;
   }
 }
 .landing .text {
@@ -374,7 +374,7 @@ header .nav .menu ul a i {
 @media (max-width: 991px) {
   .landing .image img {
     width: 315px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
   }
 }
 .landing .go-down {
