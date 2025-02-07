@@ -146,6 +146,11 @@ header .logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: var(--main-transition);
+  animation: go-logo 1s ease;
+}
+header .logo:hover {
+  transform: scale(1.1);
 }
 header .nav {
   display: flex;
@@ -166,6 +171,16 @@ header .nav > li > a {
   position: relative;
   overflow: hidden;
   font-size: 18px;
+}
+@media (min-width: 768px) {
+  header .nav > li > a {
+    animation: go-up-link 1s ease;
+  }
+}
+@media (max-width: 767px) {
+  header .nav > li > a {
+    animation: go-left-link 1s ease;
+  }
 }
 header .nav > li > a::before {
   content: "";
@@ -193,6 +208,13 @@ header .nav > li > a:hover::before {
   header .nav {
     margin: auto;
   }
+  header .nav > li > a {
+    padding: 0 15px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 374px) {
   header .nav > li > a {
     padding: 0 10px;
     height: 40px;
@@ -291,10 +313,10 @@ header .nav .menu ul a i {
   transform-origin: top left;
   z-index: -2;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .landing::before {
-    height: 95%;
-    transform: skewy(-7deg);
+    top: 0;
+    transform: skewy(0deg);
   }
 }
 .landing .container {
@@ -361,6 +383,22 @@ header .nav .menu ul a i {
 .landing .go-down .down {
   font-size: 25px;
   animation: bouncing 1.5s infinite;
+}
+.landing .spikes::after {
+  opacity: 0;
+}
+@media (max-width: 991px) {
+  .landing .spikes::after {
+    opacity: 1;
+    background-image: linear-gradient(135deg, #ececec 25%, transparent 25%),
+      linear-gradient(225deg, #ececec 25%, transparent 25%);
+    bottom: -29px;
+  }
+}
+@media (max-width: 767px) {
+  .landing .spikes::after {
+    bottom: -11px;
+  }
 }
 /* End Landing */
 /* Start Articles */
@@ -1513,6 +1551,12 @@ header .nav .menu ul a i {
   margin-bottom: 25px;
   caret-color: var(--main-color);
 }
+.discount .form .input::placeholder {
+  transition: var(--main-transition);
+}
+.discount .form .input:focus::placeholder {
+  opacity: 0;
+}
 .discount .form textarea {
   resize: none;
   height: 200px;
@@ -1689,9 +1733,22 @@ footer .copy-right span {
 }
 /* End footer */
 /* Start animation */
-@keyframes down {
+@keyframes go-logo {
+  0% {
+    margin-left: -200px;
+  }
+}
+@keyframes go-up-link {
+  0% {
+    margin-top: -250px;
+  }
+}
+@keyframes go-left-link {
+  from {
+    left: -500px;
+  }
   to {
-    transform: translatey(10px);
+    left: 0;
   }
 }
 @keyframes up-and-down {
